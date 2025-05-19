@@ -8,3 +8,7 @@ end
 vim.print = _G.dd
 
 require("config.lazy")
+require("config.filetypes")
+
+vim.cmd.colorscheme("solarized-osaka")
+require("config.colors")

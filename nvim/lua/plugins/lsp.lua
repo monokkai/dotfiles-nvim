@@ -4,14 +4,13 @@ return {
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
-				"stylua",
-				"selene",
 				"luacheck",
 				"shellcheck",
 				"shfmt",
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"css-lsp",
+				"astro-language-server",
 			})
 		end,
 	},
@@ -20,10 +19,11 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
-			inlay_hints = { enabled = false },
+			inlay_hints = { enabled = true },
 			---@type lspconfig.options
 			servers = {
 				cssls = {},
+				astro = {},
 				tailwindcss = {
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
@@ -60,13 +60,6 @@ return {
 					},
 				},
 				html = {},
-				yamlls = {
-					settings = {
-						yaml = {
-							keyOrdering = false,
-						},
-					},
-				},
 				lua_ls = {
 					-- enabled = false,
 					single_file_support = true,
@@ -137,20 +130,10 @@ return {
 		},
 	},
 	{
-		"neovim/nvim-lspconfig",
-		opts = function()
-			local keys = require("lazyvim.plugins.lsp.keymaps").get()
-			vim.list_extend(keys, {
-				{
-					"gd",
-					function()
-						-- DO NOT RESUSE WINDOW
-						require("telescope.builtin").lsp_definitions({ reuse_win = false })
-					end,
-					desc = "Goto Definition",
-					has = "definition",
-				},
-			})
+		"nvim-cmp",
+		dependencies = { "hrsh7th/cmp-emoji" },
+		opts = function(_, opts)
+			table.insert(opts.sources, { name = "emoji" })
 		end,
 	},
 }
