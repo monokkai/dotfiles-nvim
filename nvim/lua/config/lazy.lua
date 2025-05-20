@@ -32,6 +32,37 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
 		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 		{ import = "plugins" },
+		{
+			"hrsh7th/nvim-cmp",
+			dependencies = {
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+				"L3MON4D3/LuaSnip",
+				"rafamadriz/friendly-snippets",
+				"saadparwaiz1/cmp_luasnip",
+				"onsails/lspkind.nvim",
+				"windwp/nvim-autopairs",
+			},
+		},
+		{
+			"neovim/nvim-lspconfig",
+			dependencies = {
+				"williamboman/mason.nvim",
+				"williamboman/mason-lspconfig.nvim",
+			},
+		},
+		{
+			"L3MON4D3/LuaSnip",
+			dependencies = {
+				"rafamadriz/friendly-snippets",
+				"honza/vim-snippets",
+			},
+		},
+		{
+			"nvim-tree/nvim-web-devicons",
+			lazy = true,
+		},
 	},
 	defaults = {
 		lazy = false,
