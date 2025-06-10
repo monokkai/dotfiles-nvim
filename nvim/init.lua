@@ -7,8 +7,13 @@ _G.dd = function(...)
 end
 vim.print = _G.dd
 
-require("config.lazy")
-require("config.filetypes")
+vim.cmd [[
+	highlight! htmlTag guifg=#FF0000 ctermfg=Red
+	highlight! htmlEndTag guifg=#FF0000 ctermfg=Red
+	highlight! jsxTag guifg=#FF0000 ctermfg=Red
+	highlight! jsxEndTag guifg=#FF0000 ctermfg=Red
+	highlight! tsxTag guifg=#FF0000 ctermfg=Red
+	highlight! tsxEndTag guifg=#FF0000 ctermfg=Red
+	]]
 
-vim.cmd.colorscheme("solarized-osaka")
-require("config.colors")
+require("config.lazy")
