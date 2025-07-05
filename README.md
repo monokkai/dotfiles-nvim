@@ -28,7 +28,7 @@ Feel free to use and modify these configurations as you see fit.
 
 ## Zshrc config file
 
-
+```
 # Instant prompt (Powerlevel10k)
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -98,3 +98,4 @@ alias lg="lazygit"
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 precmd() { print -Pn "\e]0;%n@%m: %~\a" }
+```
